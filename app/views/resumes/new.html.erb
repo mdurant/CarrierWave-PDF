@@ -1,8 +1,10 @@
 <% if !@resume.errors.empty? %>
-  <div class="alert alert-error">
+  <div class="alert alert-error flash">
     <ul>
-      <% @resume.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <% flash.each do |key, value| %>
+        <div class="<%= flash_class(key) %>">
+              <%= value %>
+        </div>
       <% end %>
     </ul>
   </div>
